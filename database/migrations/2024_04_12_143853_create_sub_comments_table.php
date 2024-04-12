@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('sub_comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('general_comment_id')->constrained()->onDelete('cascade');
             $table->string('name');
@@ -21,6 +21,6 @@ return new class extends Migration {
 
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('sub_comments');
     }
 };

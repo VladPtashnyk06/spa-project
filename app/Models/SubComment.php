@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class SubComment extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'comments';
+    protected $table = 'sub_comments';
 
     /**
      * The primary key associated with the table.
@@ -26,6 +26,7 @@ class Comment extends Model
      * @var array<string, text>
      */
     protected $fillable = [
+        'general_comment_id',
         'name',
         'email',
         'page',
