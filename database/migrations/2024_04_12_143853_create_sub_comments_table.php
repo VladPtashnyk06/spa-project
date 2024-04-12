@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->string('email');
             $table->string('page')->nullable();
             $table->string('captcha');
-            $table->text('text');
+            $table->text('comment');
             $table->timestamps();
         });
     }

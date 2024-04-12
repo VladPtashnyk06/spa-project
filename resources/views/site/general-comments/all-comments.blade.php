@@ -20,7 +20,7 @@
                                     <td class="px-6 py-4" style="word-wrap:break-word; max-width: 20rem; vertical-align: top;">{{ $generalComment->email }}</td>
                                     <td class="px-6 py-4" style="word-wrap:break-word; max-width: 20rem; vertical-align: top;">{{ Str::limit($generalComment->comment, 200) }}</td>
                                     <td class="px-6 py-4 text-right" style="vertical-align: top;">
-                                        <a href="{{ route('genCom.show', $generalComment->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out w-full border" style="max-width: 120px">Open General Comment</a>
+                                        <a href="{{ route('comment.index', $generalComment->id) }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out w-full border" style="max-width: 120px">Open General Comment</a>
                                     </td>
                                 </tr>
                             @endforeach

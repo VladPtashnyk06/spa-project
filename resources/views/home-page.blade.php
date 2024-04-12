@@ -35,7 +35,7 @@
                             <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-50">Register</a>
                         @endif
                     <div>
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-50">Go to comments</a>
+                        <a href="{{ route('genCom.index') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-50">Go to comments</a>
                     </div>
                     @endauth
                 </div>
