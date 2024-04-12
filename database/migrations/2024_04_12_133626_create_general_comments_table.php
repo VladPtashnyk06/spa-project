@@ -7,20 +7,17 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('general_comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('general_comment_id')->constrained()->onDelete('cascade');
             $table->string('name');
             $table->string('email');
-            $table->string('page')->nullable();
-            $table->string('captcha');
-            $table->text('text');
+            $table->text('comment');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('general_comments');
     }
 };
