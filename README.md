@@ -1,3 +1,17 @@
+Доброго дня. Що треба робити, щоб запустити проєкт після того як ви склонували його:
+1). Створити файл .env
+2). Підняти проєкт(я зараз використовував warden)
+3). Зайти в контейнер і там прописати такі команди:
+    3.1) composer install
+    3.2) npm install
+    3.3) php artisan key:generate
+    3.4) php artisan migrate:fresh --seed( Створюється один юзер)
+    3.5) npm run dev
+
+Що є в цьому проєкті: Перегляд, створення, редагування, видалення головних коментарів, та також другорядних. Валідація даних присутня, за допомгою requests та прописаної регулярки в middleware. 
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
