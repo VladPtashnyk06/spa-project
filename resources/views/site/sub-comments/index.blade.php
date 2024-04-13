@@ -27,6 +27,10 @@
                     </div>
                 @endforeach
 
+                <div>
+                    {{ $subComments->links() }}
+                </div>
+
                 <div class="text-center">
                     <a href="{{ route('comment.create', $generalComment->id) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out max-w-xs">Create SubComment</a>
                     <a href="{{ route('genCom.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out w-full max-w-xs">Back</a>
