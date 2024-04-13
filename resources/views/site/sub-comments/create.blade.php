@@ -15,7 +15,7 @@
                     <input type="hidden" name="general_comment_id" id="general_comment_id" value="{{ $generalComment->id }}">
                     <input type="hidden" name="name" id="name" value="{{ $user->name }}">
                     <input type="hidden" name="email" id="email" value="{{ $user->email }}">
-                    <input type="hidden" name="page" id="page" value="null">
+                    <input type="hidden" name="page" id="page" value="{{ 'https://app.spa.test/profile/'.$user->id.'' }}">
 
                     <div class="mb-4">
                         @error('comment')
