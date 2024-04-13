@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GeneralCommentRequest;
+use App\Http\Requests\GeneralCommentsFilterRequest;
 use App\Models\GeneralComment;
 use App\Models\User;
 
@@ -16,11 +17,32 @@ class GeneralCommentController extends Controller
         return view('site.general-comments.my-comments', compact('generalComments'));
     }
 
-    public function allComments()
+    public function allComments(GeneralCommentsFilterRequest $request)
     {
-        $generalComments = GeneralComment::orderBy('id', 'desc')->paginate(25);
+        $queryParams = $request->only(['name', 'email', 'created_at']);
+        $filteredParams = array_filter($queryParams);
 
-        return view('site.general-comments.all-comments', compact('generalComments'));
+        $names = GeneralComment::pluck('name')->unique();
+        $emails = GeneralComment::pluck('email')->unique();
+        $created_ats = GeneralComment::pluck('created_at')->unique();
+
+        $generalComments = GeneralComment::query();
+
+        if (isset($filteredParams['name'])) {
+            $generalComments->where('name', $filteredParams['name']);
+        }
+
+        if (isset($filteredParams['email'])) {
+            $generalComments->where('email', $filteredParams['email']);
+        }
+
+        if (isset($filteredParams['created_at'])) {
+            $generalComments->where('created_at', $filteredParams['created_at']);
+        }
+
+        $generalComments = $generalComments->orderByDesc('id')->paginate(25);
+
+        return view('site.general-comments.all-comments', compact('names', 'emails', 'created_ats', 'generalComments'));
     }
 
     public function create()

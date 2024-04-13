@@ -4,19 +4,19 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GeneralCommentRequest extends FormRequest
+class GeneralCommentsFilterRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'name' => ['required'],
-            'email' => ['required', 'email', 'max:254'],
-            'comment' => ['required'],
+            'name' => ['nullable', 'string'],
+            'email' => ['nullable', 'email'],
+            'created_at' => ['nullable', 'date'],
         ];
     }
 
@@ -25,7 +25,7 @@ class GeneralCommentRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
