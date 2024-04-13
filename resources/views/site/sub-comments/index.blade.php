@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="py-12">
-        <div class="max-w-full mx-auto sm:px-6 lg:px-8">
+        <div class="mx-auto sm:px-6 lg:px-8" style="max-width: 95rem">
             <div class="bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <h2 class="text-xl font-semibold mb-6 text-center text-gray-800">{{ __("SubComments") }}</h2>
 

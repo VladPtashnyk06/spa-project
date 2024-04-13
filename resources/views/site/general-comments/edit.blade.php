@@ -1,9 +1,9 @@
 <x-app-layout>
     <div class="py-12">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto sm:px-6 lg:px-8" style="max-width: 95rem">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6">
-                    <h2 class="text-2xl font-semibold mb-4 text-center">{{ __("Edit General Comment") }}</h2>
+                    <h2 class="text-2xl font-semibold mb-4 text-center">Edit General Comment</h2>
                     <form action="{{ route('genCom.my.update', $generalComment->id) }}" method="post">
                         @csrf
 
