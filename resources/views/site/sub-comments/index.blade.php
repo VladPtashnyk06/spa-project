@@ -2,7 +2,7 @@
     <div class="py-12">
         <div class="mx-auto sm:px-6 lg:px-8" style="max-width: 95rem">
             <div class="bg-gray-100 overflow-hidden shadow-sm sm:rounded-lg p-6">
-                <h2 class="text-xl font-semibold mb-6 text-center text-gray-800">{{ __("SubComments") }}</h2>
+                <h2 class="text-xl font-semibold mb-6 text-center text-gray-800">SubComments</h2>
 
                 <div class="mb-6 border border-gray-200 p-4 rounded-lg bg-white">
                     <p class="mb-2 text-gray-700"><span class="font-semibold">General Comment</span></p>
@@ -10,8 +10,8 @@
                     <p class="mb-4 text-gray-700"><span class="font-semibold">Comment:</span> {{ $generalComment->comment }}</p>
                 </div>
 
-                @foreach($subComments as $subComment)
-                    <div class="mb-6 border border-gray-200 p-4 rounded-lg bg-white">
+                @foreach($subComments as $index => $subComment)
+                    <div class="sub-comment-block mb-6 border border-gray-200 p-4 rounded-lg bg-white" style="margin-left: {{ $index * 10 + 10}}px">
                         <p class="mb-2 text-gray-700"><span class="font-semibold">Name:</span> {{ $subComment->name }} <span class="font-semibold">Email:</span> {{ $subComment->email }} <span class="font-semibold">Created at:</span> {{ $subComment->created_at }}</p>
                         <p class="mb-4 text-gray-700"><span class="font-semibold">Comment:</span> {{ $subComment->comment }}</p>
                         @if($user->email == $subComment->email)
