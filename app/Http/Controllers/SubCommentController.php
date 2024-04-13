@@ -13,8 +13,13 @@ class SubCommentController extends Controller
     {
         $generalComment = GeneralComment::findOrFail($idGenComment);
         $subComments = SubComment::where('general_comment_id', $idGenComment)->orderByDesc('id')->paginate(25);
-
-        return view('site.sub-comments.index',compact('generalComment', 'subComments'));
+        if (auth()->user()) {
+            $userId = auth()->user()->id;
+            $user = User::find($userId);
+        } else {
+            $user = null;
+        }
+        return view('site.sub-comments.index',compact('generalComment', 'subComments', 'user'));
     }
 
     public function create(int $idGenComment)
@@ -30,7 +35,7 @@ class SubCommentController extends Controller
     {
         SubComment::create($request->validated());
 
-        return redirect()->back();
+        return redirect()->route('genCom.index');
     }
 
     public function edit(int $idSubComment)

@@ -32,7 +32,6 @@ Route::get('/dashboard', function () {
 Route::group(['prefix' => 'genCom'], function () {
     Route::controller(GeneralCommentController::class)->group(function () {
         Route::get('/all', 'allComments')->name('genCom.index');
-        Route::get('/show/{id}', 'show')->name('genCom.show');
     });
 });
 
