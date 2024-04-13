@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <span>{!! captcha_img('math') !!}</span>
+                        <span>{!! captcha_img('characters') !!}</span>
                         <div>
                             @error('captcha')
                                 <span class="text-red-500">{{ __("This field is required") }}</span>
