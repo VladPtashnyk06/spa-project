@@ -67,6 +67,9 @@
                         @endforeach
                         </tbody>
                     </table>
+                    <div>
+                        {{ $generalComments->links() }}
+                    </div>
                 </div>
             </div>
         </div>
