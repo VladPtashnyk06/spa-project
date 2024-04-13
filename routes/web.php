@@ -15,7 +15,6 @@ use App\Http\Controllers\SubCommentController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/laravel', function () {
     return view('welcome');
 });
@@ -43,7 +42,7 @@ Route::group(['prefix' => 'comment'], function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profile/{id}', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
@@ -52,7 +51,9 @@ Route::middleware('auth')->group(function () {
         Route::controller(GeneralCommentController::class)->group(function () {
             Route::get('/my', 'index')->name('genCom.my.index');
             Route::get('/create', 'create')->name('genCom.my.create');
-            Route::post('/store', 'store')->name('genCom.my.store');
+            Route::middleware('validation')->group(function () {
+                Route::post('/store', 'store')->name('genCom.my.store');
+            });
             Route::get('/edit/{id}', 'edit')->name('genCom.my.edit');
             Route::post('/update/{id}', 'update')->name('genCom.my.update');
             Route::delete('/delete/{id}', 'destroy')->name('genCom.my.destroy');
@@ -63,7 +64,9 @@ Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'comment'], function () {
         Route::controller(SubCommentController::class)->group(function () {
             Route::get('/create/{idGenCom}', 'create')->name('comment.create');
-            Route::post('/store', 'store')->name('comment.store');
+            Route::middleware('validation')->group(function () {
+                Route::post('/store', 'store')->name('comment.store');
+            });
             Route::get('/edit/{id}', 'edit')->name('comment.edit');
             Route::post('/update/{id}', 'update')->name('comment.update');
             Route::delete('/delete/{id}', 'destroy')->name('comment.destroy');
