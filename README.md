@@ -6,7 +6,7 @@
     3.2) npm install
     3.3) php artisan key:generate
     3.4) php artisan migrate:fresh --seed( Створюється один юзер)
-    3.5) npm run dev
+    3.5) npm run build
 
 Що є в цьому проєкті: Перегляд, створення, редагування, видалення головних коментарів, та також другорядних. Валідація даних присутня, за допомгою requests та прописаної регулярки в middleware. 
 
