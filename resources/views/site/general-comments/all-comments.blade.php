@@ -32,6 +32,19 @@
                         </div>
                     </form>
 
+                    <div class="flex justify-end mb-5">
+                        <form action="{{ route('genCom.index') }}" method="GET">
+                            <input type="hidden" name="sort" value="{{ request()->input('sort') === 'asc' ? 'desc' : 'asc' }}">
+                            <button type="submit" class="bg-gray-200 hover:bg-gray-300 text-gray-600 font-bold py-2 px-4 rounded-l transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-50">
+                                @if(request()->input('sort') === 'asc')
+                                    &#8595;
+                                @else
+                                    &#8593;
+                                @endif
+                            </button>
+                        </form>
+                    </div>
+
                     <table class="w-full mb-5">
                         <thead>
                         <tr class="text-center border-b-2 border-gray-700">

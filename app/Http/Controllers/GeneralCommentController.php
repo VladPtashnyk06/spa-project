@@ -40,7 +40,10 @@ class GeneralCommentController extends Controller
             $generalComments->where('created_at', $filteredParams['created_at']);
         }
 
-        $generalComments = $generalComments->orderByDesc('id')->paginate(25);
+        $sortDirection = $request->input('sort') === 'desc' ? 'asc' : 'desc';
+        $generalComments->orderBy('id', $sortDirection);
+
+        $generalComments = $generalComments->paginate(25);
 
         return view('site.general-comments.all-comments', compact('names', 'emails', 'created_ats', 'generalComments'));
     }
