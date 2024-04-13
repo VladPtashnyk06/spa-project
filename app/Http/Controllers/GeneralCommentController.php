@@ -45,13 +45,6 @@ class GeneralCommentController extends Controller
         return view('site.general-comments.edit', compact('generalComment'));
     }
 
-    public function show(int $idGeneralComment)
-    {
-        $generalComment = GeneralComment::findOrFail($idGeneralComment);
-
-        return view('site.general-comments.single-comment', compact('generalComment'));
-    }
-
     public function update(GeneralCommentRequest $request, int $idGeneralComment)
     {
         GeneralComment::findOrFail($idGeneralComment)->update($request->validated());

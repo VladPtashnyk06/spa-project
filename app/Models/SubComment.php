@@ -31,6 +31,6 @@ class SubComment extends Model
         'email',
         'page',
         'captcha',
-        'text',
+        'comment',
     ];
 }

@@ -13,8 +13,8 @@ class SubCommentRequest extends FormRequest
             'name' => ['required'],
             'email' => ['required', 'email', 'max:254'],
             'page' => ['required'],
-            'captcha' => ['required'],
-            'text' => ['required'],
+            'captcha' => ['required', 'captcha'],
+            'comment' => ['required'],
         ];
     }
 
